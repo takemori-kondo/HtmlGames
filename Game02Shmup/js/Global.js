@@ -2,7 +2,7 @@
 
 class GlobalInner {
     // debug mode?
-    get IS_DEBUG(){ return true };
+    get IS_DEBUG(){ return false };
 
     // key constants
     get KEY_SPACE() { return 32 };
