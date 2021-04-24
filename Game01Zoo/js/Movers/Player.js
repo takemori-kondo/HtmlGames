@@ -5,8 +5,8 @@ import {Collision} from './Collision.js'
 import {Mover} from './Mover.js'
 
 export class Player extends Mover {
-    constructor(x, y, imgFileName, imgOffsetX, imgOffsetY) {
-        super(x, y, imgFileName, imgOffsetX, imgOffsetY);
+    constructor(x, y) {
+        super(x, y, "./img/4wd.png",  -32, 30);
         this.collisions.push(new Collision(-10, 0, 16));
         this.collisions.push(new Collision(+16, 0, 16));
         this.isJumping = false;

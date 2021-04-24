@@ -4,8 +4,8 @@ import {Global} from '../Global.js'
 import {Mover} from './Mover.js'
 
 export class FrontEnd extends Mover {
-    constructor(x, y, imgFileName, imgOffsetX, imgOffsetY) {
-        super(x, y, imgFileName, imgOffsetX, imgOffsetY);
+    constructor(x, y) {
+        super(x, y, "", 0, 0);
         this.feet = 0;
     }
 

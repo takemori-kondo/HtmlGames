@@ -28,9 +28,9 @@ export class StageScene {
         this.bgList = [];
         this.animalList = [];
         this.isCollided = false;
-        this.player = new Player(100, Global.GROUND + Global.PLAYER_GROUND_TOUCH_OFFSET, "./img/4wd.png", -32, 30);
-        this.ground = new Ground(0, Global.GROUND, "", 0, 0);
-        this.frontEnd = new FrontEnd(0, 0, "", 0, 0);
+        this.player = new Player(100, Global.GROUND + Global.PLAYER_GROUND_TOUCH_OFFSET);
+        this.ground = new Ground(0, Global.GROUND);
+        this.frontEnd = new FrontEnd(0, 0);
         this.bgList.push(new LoopingBackGround(80, 350, "./img/cloud.png", 0, 0, -2, 0));
         this.bgList.push(new LoopingBackGround(350, 340, "./img/cloud.png", 0, 0, -2, 0));
         this.bgList.push(new LoopingBackGround(420, 350, "./img/cloud.png", 0, 0, -2, 0));
