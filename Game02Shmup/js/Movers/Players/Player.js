@@ -6,8 +6,8 @@ import {Mover} from '../Mover.js'
 import {PlayerBullet} from './PlayerBullet.js'
 
 export class Player extends Mover {
-    constructor(x, y, imgFileName, imgOffsetX, imgOffsetY) {
-        super(x, y, imgFileName, imgOffsetX, imgOffsetY);
+    constructor(x, y) {
+        super(x, y, "./img/player.png", -32, 30);
         this.collisions.push(new Collision(-24, -4, 4));
         this.collisions.push(new Collision(-16, -4, 4));
         this.collisions.push(new Collision(-8, -4, 4));

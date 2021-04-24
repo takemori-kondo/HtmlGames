@@ -13,9 +13,8 @@ export class StageScene {
         this.enemyBulletList = [];
         this.frontEnd = null;
         this.isPlayerCollided = false;
-        this.nextInterval = 0;
+        this.nextEnemyCreateInterval = 0;
         this.nextEnemyCreateIntervalCounter = 0;
-        
         this.createIntervalReduceOffset = 0;
         this.fireIntervalOffset = 0;
     }
@@ -32,8 +31,8 @@ export class StageScene {
         this.createIntervalReduceOffset = 0;
         this.fireIntervalOffset = 0;
 
-        this.player = new Player(100, 100 + Global.PLAYER_BOTTOM_TOUCH_OFFSET, "./img/player.png", -32, 30);
-        this.frontEnd = new FrontEnd(0, 0, "", 0, 0);
+        this.player = new Player(100, 100 + Global.PLAYER_BOTTOM_TOUCH_OFFSET);
+        this.frontEnd = new FrontEnd(0, 0);
     }
 
     update() {
@@ -45,20 +44,14 @@ export class StageScene {
             // Move Process
             this.player.move();
             this.frontEnd.move();
-            for (const mover of this.playerBulletList) {
-                mover.move();
-            }
-            for (const mover of this.enemyList) {
-                mover.move();
-            }
-            for (const mover of this.enemyBulletList) {
-                mover.move();
-            }
+            for (const mover of this.playerBulletList) { mover.move(); }
+            for (const mover of this.enemyList) { mover.move(); }
+            for (const mover of this.enemyBulletList) { mover.move(); }
+            this.createIntervalReduceOffset += Global.CREATE_ENEMY_INTERVAL_EVERY_REDUCE;
             this.fireIntervalOffset += Global.ENEMY_BULLET_FIRE_INTERVAL_EVERY_REDUCE;
 
             // Enemy Create Process
             this.nextEnemyCreateIntervalCounter++;
-            this.createIntervalReduceOffset += Global.CREATE_ENEMY_INTERVAL_EVERY_REDUCE;
             if (this.nextEnemyCreateInterval < this.nextEnemyCreateIntervalCounter) {
                 this.nextEnemyCreateIntervalCounter = 0;
                 this.nextEnemyCreateInterval = Math.random() * Global.CREATE_ENEMY_INTERVAL_WIDTH + Global.CREATE_ENEMY_INTERVAL_MIN - this.createIntervalReduceOffset;
@@ -146,20 +139,19 @@ export class StageScene {
 
             // Remove Process
             for (var i = 0; i < this.playerBulletList.length; i++) {
-                if (this.playerBulletList[i].hp <= 0) {
+                if (!this.playerBulletList[i].exists()) {
                     this.playerBulletList.splice(i, 1);
                     i--;
                 }
             }
             for (let i = 0; i < this.enemyList.length; i++) {
-                if (this.enemyList[i].hp <= 0) {
+                if (!this.enemyList[i].exists()) {
                     this.enemyList.splice(i, 1);
                     i--;
                 }
             }
-            
             for (let i = 0; i < this.enemyBulletList.length; i++) {
-                if (this.enemyBulletList[i].hp <= 0) {
+                if (!this.enemyBulletList[i].exists()) {
                     this.enemyBulletList.splice(i, 1);
                     i--;
                 }
@@ -170,16 +162,9 @@ export class StageScene {
         Global.g_ctx.clearRect(0, 0, Global.CANVAS_SCREEN_WIDTH, Global.CANVAS_SCREEN_HEIGHT);
         this.player.draw();
         this.frontEnd.draw();
-        for (const mover of this.playerBulletList) {
-            mover.draw();
-        }
-        for (const mover of this.enemyList) {
-            mover.draw();
-        }
-        console.log(this.enemyBulletList.length)
-        for (const mover of this.enemyBulletList) {
-            mover.draw();
-        }
+        for (const mover of this.playerBulletList) { mover.draw(); }
+        for (const mover of this.enemyList) { mover.draw(); }
+        for (const mover of this.enemyBulletList) { mover.draw(); }
         if (this.isPlayerCollided) {
             Global.g_ctx.font = Global.GAME_OVER_SUB_FONT;
             Global.g_ctx.fillText("Enter : restart", 210, 230);

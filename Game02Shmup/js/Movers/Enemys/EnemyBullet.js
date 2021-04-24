@@ -16,4 +16,11 @@ export class EnemyBullet extends Mover {
         this.collisions = [new Collision(8, -8, 6)];
         this.attackPower = Global.PLAYER_BULLET_ATTACK_POWER;
     }
+
+    move() {
+        super.move();
+        if (this.x <= -100) {
+            this.hp = 0;
+        }
+    }
 }

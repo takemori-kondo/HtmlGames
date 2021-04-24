@@ -33,5 +33,8 @@ export class EnemyHelicopter extends Mover {
                 this.currentCreateds = [new EnemyBullet(this.x, this.y - 40, theta)];
             }
         }
+        if (this.x <= -100) {
+            this.hp = 0;
+        }
     }
 }
