@@ -21,15 +21,15 @@ class GlobalInner {
     get DEFAULT_FONT() { return '12px Consolas, monospace' };
 
     // game settings
-    get GROUND() { return 50 };
-    get PLAYER_GROUND_TOUCH_OFFSET() { return 21 };
     get PLAYER_SPEED_X() { return 2 };
     get PLAYER_SPEED_Y() { return 9 };
-    get GRAVITY() { return -0.3 };
-    get ZOO_LOOP() { return 11000 };
     get FEET_UP() { return 0.6 };
     get GAME_OVER_FONT() { return '64px Consolas, monospace' };
     get GAME_OVER_SUB_FONT() { return '24px Consolas, monospace' };
+    get GROUND() { return 50 };
+    get PLAYER_GROUND_TOUCH_OFFSET() { return 21 };
+    get GRAVITY() { return -0.3 };
+    get ZOO_LOOP() { return 11000 };
 
     constructor() {
         // system & input parameters
