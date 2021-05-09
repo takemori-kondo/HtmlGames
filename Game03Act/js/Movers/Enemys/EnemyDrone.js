@@ -5,7 +5,7 @@ import {Mover} from '../Mover.js'
 import {EnemyBullet} from './EnemyBullet.js'
 import {Player} from '../Players/Player.js'
 import { ImgContainerList } from '../ImgContainerList.js';
-import { ImgContainer } from '../imgContainer.js';
+import { ImgContainer } from '../ImgContainer.js';
 import { Global } from '../../Global.js';
 
 export class EnemyDrone extends Mover {

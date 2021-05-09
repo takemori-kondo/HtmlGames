@@ -2,7 +2,7 @@
 
 import {Global} from '../../Global.js'
 import {CircleCollider} from '../CircleCollider.js'
-import { ImgContainer } from '../imgContainer.js';
+import { ImgContainer } from '../ImgContainer.js';
 import { ImgContainerList } from '../ImgContainerList.js';
 import {Mover} from '../Mover.js'
 

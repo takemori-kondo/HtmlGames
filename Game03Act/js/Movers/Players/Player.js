@@ -4,7 +4,7 @@ import {Global} from '../../Global.js'
 import {AabbCollider} from '../AabbCollider.js'
 import { ImgContainerList } from '../ImgContainerList.js'
 import {CircleCollider} from '../CircleCollider.js'
-import { ImgContainer } from '../imgContainer.js'
+import { ImgContainer } from '../ImgContainer.js'
 import {Mover} from '../Mover.js'
 import {PlayerBullet} from './PlayerBullet.js'
 
